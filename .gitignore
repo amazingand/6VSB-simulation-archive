@@ -1,0 +1,12 @@
+# 本地临时文件
+tmp/
+work/
+*.tmp
+*.temp
+*.log
+
+# 操作系统与编辑器文件
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

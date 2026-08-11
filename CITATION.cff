@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "如果本归档支持了您的工作，请引用下列论文。"
+title: "6VSB Simulation Archive"
+type: dataset
+authors:
+  - family-names: Yu
+    given-names: Jie
+  - family-names: Zhang
+    given-names: Zhi-Wei
+  - family-names: Yang
+    given-names: Han-Yu
+  - family-names: Liu
+    given-names: Chong-Jin
+  - family-names: Lu
+    given-names: Wen-Cai
+preferred-citation:
+  type: article
+  title: "Study of fusion peptide release for the spike protein of SARS-CoV-2"
+  authors:
+    - family-names: Yu
+      given-names: Jie
+    - family-names: Zhang
+      given-names: Zhi-Wei
+    - family-names: Yang
+      given-names: Han-Yu
+    - family-names: Liu
+      given-names: Chong-Jin
+    - family-names: Lu
+      given-names: Wen-Cai
+  journal: "RSC Advances"
+  year: 2023
+  volume: 13
+  start: 16970
+  end: 16983
+  doi: "10.1039/D3RA01764H"
