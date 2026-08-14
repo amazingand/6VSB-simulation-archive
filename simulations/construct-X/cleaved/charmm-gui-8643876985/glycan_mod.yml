@@ -1,0 +1,82 @@
+---
+- 
+  chain: A
+  type: n-linked
+  prot: '{"segid":"PROA","resname":"ASN","resid":709}'
+  grs: |
+    1 BGLCNA
+    2 - 14B: BGLCNA
+    3 - - 14B: BMAN
+    4 - - - 16A: AMAN
+    5 - - - - 13A: AMAN
+    6 - - - - 16A: AMAN
+    7 - - - 13A: AMAN
+  segid: CARA
+- 
+  chain: A
+  type: n-linked
+  prot: '{"segid":"PROA","resname":"ASN","resid":717}'
+  grs: |
+    1 BGLCNA
+    2 - 14B: BGLCNA
+    3 - - 14B: BMAN
+    4 - - - 16A: AMAN
+    5 - - - - 13A: AMAN
+    6 - - - - 16A: AMAN
+    7 - - - 13A: AMAN
+  segid: CARB
+- 
+  chain: A
+  type: n-linked
+  prot: '{"segid":"PROA","resname":"ASN","resid":801}'
+  grs: |
+    1 BGLCNA
+    2 - 14B: BGLCNA
+    3 - - 14B: BMAN
+    4 - - - 16A: AMAN
+    5 - - - - 13A: AMAN
+    6 - - - - 16A: AMAN
+    7 - - - 13A: AMAN
+  segid: CARC
+- 
+  chain: C
+  type: n-linked
+  prot: '{"segid":"PROC","resname":"ASN","resid":603}'
+  grs: |
+    1 BGLCNA
+    2 - 14B: BGLCNA
+    3 - - 14B: BMAN
+    4 - - - 16A: AMAN
+    5 - - - - 13A: AMAN
+    6 - - - - 16A: AMAN
+    7 - - - 13A: AMAN
+  segid: CARD
+- 
+  chain: C
+  type: n-linked
+  prot: '{"segid":"PROC","resname":"ASN","resid":616}'
+  grs: |
+    1 BGLCNA
+    2 - 14B: BGLCNA
+    3 - - 14B: BMAN
+    4 - - - 13A: AMAN
+    5 - - - - 12B: BGLCNA
+    6 - - - 16A: AMAN
+    7 - - - - 12B: BGLCNA
+    8 - 16A: AFUC
+  segid: CARE
+- 
+  chain: C
+  type: n-linked
+  prot: '{"segid":"PROC","resname":"ASN","resid":657}'
+  grs: |
+    1 BGLCNA
+    2 - 14B: BGLCNA
+    3 - - 14B: BMAN
+    4 - - - 16A: AMAN
+    5 - - - - 13A: AMAN
+    6 - - - - 16A: AMAN
+    7 - - - 13A: AMAN
+    8 - - - - 12B: BGLCNA
+    9 - - - - - 14B: BGAL
+  segid: CARF

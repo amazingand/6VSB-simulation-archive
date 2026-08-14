@@ -15,6 +15,15 @@
 
 仓库只承担文件托管、版本追踪和完整性校验，不在此处提供研究决策或自动执行模拟。
 
+## 2026-08-14 文件快照
+
+- `simulations/construct-X/cleaved/charmm-gui-8643876985/`
+- `simulations/construct-X/uncleaved/charmm-gui-8644096179/`
+
+上述目录是完成写入后的文件快照。按项目记录，它们分别由现有的 `construct_X_*.tgz` 归档展开，并在各自的 `amber/` 目录中加入对应的输入与操作脚本文件。用于保留该补充来源的归档名称为 `cleaved.tgz` 和 `uncleaved.tgz`。
+
+大型或二进制文件使用 Git LFS；脚本、说明和较小的文本文件仍由普通 Git 管理。快照只表示文件集合和校验值已经固定，不对文件内容作研究结论。
+
 ## 获取
 
 本仓库使用 Git LFS 保存 `.tgz` 归档。首次克隆前请安装 Git LFS：
