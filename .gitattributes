@@ -6,7 +6,7 @@
 *.yml text eol=lf
 
 # Expanded simulation snapshots: keep large/binary artifacts out of normal Git objects.
-simulations/construct-X/*/charmm-gui-*/** text eol=lf
+simulations/construct-X/*/charmm-gui-*/** -text
 simulations/construct-X/*/charmm-gui-*/**/*.nc filter=lfs diff=lfs merge=lfs -text
 simulations/construct-X/*/charmm-gui-*/**/*.psf filter=lfs diff=lfs merge=lfs -text
 simulations/construct-X/*/charmm-gui-*/**/*.oldpsf filter=lfs diff=lfs merge=lfs -text
