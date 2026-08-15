@@ -24,6 +24,12 @@
 
 大型或二进制文件使用 Git LFS；脚本、说明和较小的文本文件仍由普通 Git 管理。快照只表示文件集合和校验值已经固定，不对文件内容作研究结论。
 
+## 2026-08-15 SMD 试运行快照
+
+两个 `amber/` 目录中的试运行文件已按原路径归档。迭代前的 `run_smd.sh`、`smd_pull.mdin` 和失败输出 `smd_pull.mdout` 均继续保留；带 `cleaved` 或 `uncleaved` 后缀的替代文件作为独立文件保存，不覆盖旧版。
+
+来源归档、旧版文件、替代文件及其 SHA-256 对应关系见 [`simulations/construct-X/SMD_ITERATION_HISTORY.md`](simulations/construct-X/SMD_ITERATION_HISTORY.md)。大型生成文件继续使用 Git LFS；快照不对文件内容或模拟结果作研究判断。
+
 ## 获取
 
 本仓库使用 Git LFS 保存 `.tgz` 归档。首次克隆前请安装 Git LFS：
