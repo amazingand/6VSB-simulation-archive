@@ -15,3 +15,5 @@ simulations/construct-X/*/charmm-gui-*/**/*.pdb filter=lfs diff=lfs merge=lfs -t
 simulations/construct-X/*/charmm-gui-*/**/*.rst7 filter=lfs diff=lfs merge=lfs -text
 simulations/construct-X/*/charmm-gui-*/**/*.parm7 filter=lfs diff=lfs merge=lfs -text
 simulations/construct-X/*/charmm-gui-*/**/*.out filter=lfs diff=lfs merge=lfs -text
+simulations/construct-X/*/charmm-gui-*/amber/smd_chunk*.mdout filter=lfs diff=lfs merge=lfs -text
+simulations/construct-X/*/charmm-gui-*/amber/smd_pull.mdout filter=lfs diff=lfs merge=lfs -text
