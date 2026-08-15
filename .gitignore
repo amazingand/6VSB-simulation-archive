@@ -4,6 +4,7 @@ work/
 *.tmp
 *.temp
 *.log
+!simulations/construct-X/*/charmm-gui-*/amber/smd_test/smd_run.log
 
 # 操作系统与编辑器文件
 .DS_Store

@@ -3,7 +3,9 @@ param(
     [Parameter(Mandatory = $true)]
     [string[]]$Path,
 
-    [string]$ManifestPath
+    [string]$ManifestPath,
+
+    [switch]$PruneMissing
 )
 
 $ErrorActionPreference = 'Stop'
@@ -41,6 +43,16 @@ foreach ($file in ($files | Sort-Object FullName -Unique)) {
     $hash = (Get-FileHash -Algorithm SHA256 -LiteralPath $file.FullName).Hash.ToLowerInvariant()
     $entries[$relativePath] = $hash
     Write-Host "Hashed: $relativePath"
+}
+
+if ($PruneMissing) {
+    foreach ($relativePath in @($entries.Keys)) {
+        $targetPath = Join-Path $repositoryRoot $relativePath.Replace('/', [IO.Path]::DirectorySeparatorChar)
+        if (-not (Test-Path -LiteralPath $targetPath -PathType Leaf)) {
+            $entries.Remove($relativePath)
+            Write-Host "Pruned missing: $relativePath"
+        }
+    }
 }
 
 $lines = @($entries.Keys | Sort-Object | ForEach-Object { '{0}  {1}' -f $entries[$_], $_ })

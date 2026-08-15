@@ -30,6 +30,12 @@
 
 来源归档、旧版文件、替代文件及其 SHA-256 对应关系见 [`simulations/construct-X/SMD_ITERATION_HISTORY.md`](simulations/construct-X/SMD_ITERATION_HISTORY.md)。大型生成文件继续使用 Git LFS；快照不对文件内容或模拟结果作研究判断。
 
+## 2026-08-15 正式文件更新
+
+两个 `amber/` 目录原有的试运行文件已完整迁移到各自的 `smd_test/` 子目录；正式文件保留在 `amber/` 顶层。迁移后的 90 个试运行文件与上一快照中的对应文件 SHA-256 全部一致。
+
+本次正式文件的来源归档为 `simulations/M3_SMD初筛核验修订包(1).tar.gz`。正式文件、来源成员和迁移关系的文件级记录仍见 [`simulations/construct-X/SMD_ITERATION_HISTORY.md`](simulations/construct-X/SMD_ITERATION_HISTORY.md)。
+
 ## 获取
 
 本仓库使用 Git LFS 保存 `.tgz` 归档。首次克隆前请安装 Git LFS：
