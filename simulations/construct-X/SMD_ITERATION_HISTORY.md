@@ -46,6 +46,35 @@
 
 归档内 `uncleaved/smd_pull.mdin` 与当前替代输入的 SHA-256 相同。归档内 `uncleaved/run_smd.sh` 的 SHA-256 为 `2ced9b9502e98871b2c28f686645614146dd02974cbadae93996e73947333d3b`，与当前替代脚本不同；因此两者均被保留，不宣称逐字节相同。
 
+## 2026-08-15 正式文件更新
+
+来源归档：`simulations/M3_SMD初筛核验修订包(1).tar.gz`
+
+- 大小：12,406 字节
+- SHA-256：`82de76be417b85dc7ffa4b14a5d190f347c16dded323ace376a4c1b63a8c2637`
+
+`analyze_smd.py` 由用户从同名解压目录直接移动到目标工作目录，因此解压目录中不再保留该文件。核查确认来源归档内存在该成员，其 SHA-256 为 `aea068465269461d60f39be0434cc432b8ed4a650d58ffd7c96e252589e57fa3`；两个工作目录中的正式副本也与该校验值一致。
+
+### 正式文件
+
+| 目录 | 文件 | 大小（字节） | SHA-256 |
+| --- | --- | ---: | --- |
+| cleaved | `amber/analyze_smd.py` | 8,374 | `aea068465269461d60f39be0434cc432b8ed4a650d58ffd7c96e252589e57fa3` |
+| cleaved | `amber/run_smd_cleaved.sh` | 9,175 | `d6f86a2f9e639bd6d39239a4b508c9250c996c870a16227ff704c2912f3294e2` |
+| cleaved | `amber/smd_pull_cleaved.mdin` | 620 | `f0416a6f8982ce282eaae38a3a68c97bf1ee45eb8aa9edaff8f3de03a8937765` |
+| cleaved | `amber/smd_cleaved.RST` | 1,999 | `3bedbe1ecdc8845b4809a36b450fc5b9e310a1c715906a918496ec379fa9b339` |
+| uncleaved | `amber/analyze_smd.py` | 8,374 | `aea068465269461d60f39be0434cc432b8ed4a650d58ffd7c96e252589e57fa3` |
+| uncleaved | `amber/run_smd_uncleaved.sh` | 9,203 | `5b8337c66ae43e38c05950348e8fd1315e719c67ba5a49d399684ed9fc0daa44` |
+| uncleaved | `amber/smd_pull_uncleaved.mdin` | 612 | `aca4246553812739d1c49d01c4fca07ea5beadd4146d88602d100af738c8ac0f` |
+| uncleaved | `amber/smd_uncleaved.RST` | 2,001 | `011264d1ae20ad331d60ded81b8260940491978d413474a041588a020a81fd70` |
+
+### 试运行文件迁移
+
+- cleaved：45 个文件迁移到 `amber/smd_test/`，全部与上一快照对应文件的 SHA-256 一致。
+- uncleaved：45 个文件迁移到 `amber/smd_test/`，全部与上一快照对应文件的 SHA-256 一致。
+- 为区分用途，原带后缀脚本、输入、RST 和分析脚本在 `smd_test/` 中增加 `_test` 标记；文件内容校验值保持不变。
+- 两份 `smd_run.log` 作为试运行归档的一部分显式纳入版本控制，不受仓库的一般日志忽略规则影响。
+
 ## 追溯规则
 
 - 不覆盖或删除上述旧版文件与失败输出。
