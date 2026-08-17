@@ -1,0 +1,24 @@
+CHARMM-GUI step4.0 对齐极小化(5000 步, 与云侧同参; 已移除 sander 不认的 &end 行)
+ &cntrl
+    imin=1, maxcyc=5000, ncyc=2500,
+    cut=12.0, fswitch=10.0,
+    ntpr=100, ntxo=2,
+    ntr=1, nmropt=1,
+    watnam='WAT', owtnm='O',
+ /          
+ &ewald
+    vdwmeth = 0,
+ /
+ &wt
+    type='END'
+ /
+DISANG=dihe_FC1.rest
+LISTIN=POUT
+LISTOUT=POUT
+&end
+Protein posres
+1.0
+RES 1 371 372 541
+END
+END
+

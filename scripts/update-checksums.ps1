@@ -16,7 +16,7 @@ if ([string]::IsNullOrWhiteSpace($ManifestPath)) {
 
 $entries = [ordered]@{}
 if (Test-Path -LiteralPath $ManifestPath -PathType Leaf) {
-    foreach ($line in Get-Content -LiteralPath $ManifestPath) {
+    foreach ($line in Get-Content -LiteralPath $ManifestPath -Encoding UTF8) {
         if ($line -match '^([0-9a-fA-F]{64})\s{2}(.+)$') {
             $entries[$Matches[2]] = $Matches[1].ToLowerInvariant()
         }

@@ -11,7 +11,7 @@ if ([string]::IsNullOrWhiteSpace($ManifestPath)) {
 $manifest = Resolve-Path -LiteralPath $ManifestPath
 $failed = $false
 
-foreach ($line in Get-Content -LiteralPath $manifest) {
+foreach ($line in Get-Content -LiteralPath $manifest -Encoding UTF8) {
     if ([string]::IsNullOrWhiteSpace($line) -or $line.StartsWith('#')) {
         continue
     }
