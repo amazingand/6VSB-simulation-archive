@@ -40,6 +40,16 @@
 | P3 核心原传输容器（路径见 `archive/P3_*/SOURCE_ARCHIVES.tsv`） | `3d5bdec39c6de7bfbbdeea2d6f1b1b74fd4a9e938b2743ecb949bee20ea677c3` |
 | P4 原传输容器（路径见 `archive/P4_*/SOURCE_ARCHIVES.tsv`） | `82de76be417b85dc7ffa4b14a5d190f347c16dded323ace376a4c1b63a8c2637` |
 
+**analyze_smd.py 版本归属：**
+
+| 版本 | 状态 | SHA-256 | 存档位置 |
+|---|---|---|---|
+| v0 | 暂存草稿，非正式交付链 | `63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842` | `archive/non_delivery/analyze_smd_v0_63cdce37/` |
+| v1 | P3 正式版本 | `3c26487e93149acb40cb77de3490560cd16bba7df1cd212056913c8f6c95dad0` | `archive/P3_20260814_分片可重启/construct-X/{cleaved,uncleaved}/` |
+| v2 | P4 正式版本；P4.1 未改动该脚本 | `aea068465269461d60f39be0434cc432b8ed4a650d58ffd7c96e252589e57fa3` | `archive/P4_20260815_核验修订/common/` 与当前 `protocols/` |
+
+版本确认依据见 `docs/M3_analyze_smd版本迭代确认_v01.md`；正式交付链为 v1→v2，没有 v3。
+
 ## 2. 报告与文档版本(docs/)
 
 | 文件 | 版本 | 说明 |
@@ -53,6 +63,7 @@
 | M3_分界点核验报告_v01 | v01 | 对齐极小化核验 |
 | M3_SMD初筛核验报告_v02 | **v02**(v01=初筛版已归档) | 初筛核验 + 3 修订 + 定量方案 |
 | M3_SMD初筛核验修订说明_v01 | v01 | P4 修订包说明(含溯源表 §6) |
+| M3_analyze_smd版本迭代确认_v01 | v01 | analyze_smd.py 的 v0 草稿与正式 v1→v2 链归属确认 |
 
 ## 3. 分析数据/图版本(analysis/)
 
@@ -80,7 +91,7 @@
 - 两个 `amber/` 部署目录中的四个脚本/输入文件已与 P4.1 规范版本同步；
 - v01 历史分析成果保持不变，正式生产分析成果按命名规则登记为 v02；
 - 原始来源、历史快照、当前规范文件和部署副本之间使用 SHA-256 清单建立对应关系；
-- 一个无法确认阶段归属的早期 `analyze_smd.py` 已隔离到 `archive/unresolved/`；
+- 早期 `analyze_smd.py` 已确认是非交付 v0 草稿，存放于 `archive/non_delivery/`；
 - 历史传输压缩包暂不删除，也不重写既往 Git、标签或 Git LFS 历史。
 
 工程审计记录见 `docs/audits/Cprime_archive_audit_20260817/`，当前映射见 `PROVENANCE_MAP.tsv`。

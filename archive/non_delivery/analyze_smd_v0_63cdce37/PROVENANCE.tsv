@@ -1,0 +1,2 @@
+canonical_path	sha256	status	version	formal_delivery	evidence	note
+analyze_smd.py	63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842	identified_non_delivery_draft	v0	no	docs/M3_analyze_smd版本迭代确认_v01.md	Early draft retained for provenance; excluded from the formal v1-to-v2 delivery chain.

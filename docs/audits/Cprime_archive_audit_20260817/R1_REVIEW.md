@@ -23,14 +23,18 @@
 
 两个大型 construct-X 来源容器只建立清单和当前路径映射，不在 `archive/` 再复制其展开内容。
 
-## Unresolved
+## R1 时点的 unresolved
 
 唯一无法确认阶段归属的文件：
 
 - 文件名：`analyze_smd.py`
 - SHA-256：`63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842`
 - 来源：两个 P2-derived hybrid 容器
-- 处理：只保留一份于 `archive/unresolved/U1_analyze_smd_63cdce37/`，附来源清单；不得标记为 P1、P2 或 P3。
+- R1 时点处理：只保留一份并隔离，附来源清单；不得在证据不足时标记为 P1、P2 或 P3。
+
+## 2026-08-17 归属确认
+
+后续证据 `docs/M3_analyze_smd版本迭代确认_v01.md` 已确认该内容为 v0 暂存草稿，不属于正式 v1→v2 交付链。对象现存放于 `archive/non_delivery/analyze_smd_v0_63cdce37/`；原始 R1 判定保留在本节之前，作为决策过程记录。
 
 ## W2 白名单
 
@@ -39,6 +43,6 @@
 - 三个 P3 权威容器的展开树；
 - P4 final 展开树及 P4 较早说明变体；
 - 两个大型原始来源的成员/来源清单；
-- 唯一 unresolved 文件的隔离副本。
+- R1 时点唯一 unresolved 文件的隔离副本；归属确认后按非交付草稿保存。
 
 压缩包删除、历史重写和 Git LFS 清理均不属于本轮 W2。

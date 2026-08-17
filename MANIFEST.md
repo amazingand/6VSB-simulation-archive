@@ -17,7 +17,7 @@
 | 路径 | 状态 |
 |---|---|
 | `protocols/construct-X/` | 两套当前规范部署单元已建立 |
-| `archive/` | P1–P4 已重建为非压缩历史结构；另有 S0 来源清单和一个 unresolved 对象 |
+| `archive/` | P1–P4 已重建为非压缩历史结构；另有 S0 来源清单和一个已确认的非交付 v0 草稿 |
 | `analysis/` | v01 历史分析文件与 v02 正式生产分析文件已分开保存 |
 | `docs/` | 历史文档及 2026-08-17 压缩包审计报告已纳入 |
 | `structures/construct-X/` | 两个输入结构已纳入，现有 `structures/reference/` 保持不变 |
@@ -34,7 +34,7 @@
 - 解压文件 SHA-256 异常：0
 - 同规范路径异内容组：62
 - 已确认错误冲突：0
-- 未确认阶段归属：1 个 `analyze_smd.py` 文件内容
+- 已确认非交付草稿：1 个 `analyze_smd.py` v0 文件内容，不计入正式 v1→v2 交付链
 
 完整证据见 `docs/audits/Cprime_archive_audit_20260817/`。
 
@@ -53,7 +53,7 @@
 - 不删除任何现存 `.tgz` 或 `.tar.gz`。
 - 不重写 Git 提交、标签或 Git LFS 历史。
 - 不上传新的历史传输压缩包。
-- 不把 `archive/unresolved/` 中的文件强行归入 P1–P4。
+- 不把 `archive/non_delivery/` 中的草稿计入 P1–P4 正式交付链。
 - 整体框架验证完成后，再讨论临时压缩包的最终删除及 LFS 历史治理。
 
 ## 下一步

@@ -215,7 +215,7 @@ foreach ($snapshot in @(
     $p2Root,
     $p3Root,
     $p4Root,
-    (Join-Path $archive 'unresolved\U1_analyze_smd_63cdce37'),
+    (Join-Path $archive 'non_delivery\analyze_smd_v0_63cdce37'),
     (Join-Path $archive '文档旧版')
 )) {
     Write-Manifest -Root $snapshot

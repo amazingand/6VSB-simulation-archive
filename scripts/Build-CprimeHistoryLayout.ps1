@@ -34,7 +34,8 @@ $hashP4 = '82de76be417b85dc7ffa4b14a5d190f347c16dded323ace376a4c1b63a8c2637'
 $hashP4Early = 'bc48c181aec43e1781e8bc1d55e6958d7626916c6946919e59aa4e480283411c'
 $hashHybridCleaved = 'fc6041920c9c014b11c6f16b48459be447de4f5117ef6667a96b9c9de67dce32'
 $hashHybridUncleaved = 'd62a9f9acfbcffb56119a56ce562dcc26b499f4d1c3872f850ada0c65bda8440'
-$hashUnresolvedAnalyze = '63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842'
+$hashDraftAnalyze = '63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842'
+$hashAnalyzeVersionReport = '66ed49aceb38992069ffaf3e548905ed5dfd27941cca4bb132f223c2512e0b95'
 
 function Assert-Directory {
     param([string]$Path)
@@ -138,6 +139,10 @@ foreach ($name in @('docs', 'protocols', 'analysis', 'archive')) {
 }
 
 Copy-NewTree (Join-Path $packageResolved 'docs') (Join-Path $worktreeResolved 'docs')
+if ((Get-FileHash -LiteralPath (Join-Path $packageResolved 'M3_analyze_smd版本迭代确认_v01.md') -Algorithm SHA256).Hash.ToLowerInvariant() -ne $hashAnalyzeVersionReport) {
+    throw 'Unexpected source hash for M3_analyze_smd版本迭代确认_v01.md'
+}
+Copy-NewFile (Join-Path $packageResolved 'M3_analyze_smd版本迭代确认_v01.md') (Join-Path $worktreeResolved 'docs\M3_analyze_smd版本迭代确认_v01.md')
 Copy-NewTree (Join-Path $packageResolved 'protocols') (Join-Path $worktreeResolved 'protocols')
 Copy-NewTree (Join-Path $packageResolved 'analysis') (Join-Path $worktreeResolved 'analysis')
 Copy-NewTree (Join-Path $packageResolved 'structures\construct-X') (Join-Path $worktreeResolved 'structures\construct-X')
@@ -217,10 +222,10 @@ Copy-NewFile (Join-Path $p4EarlySource '说明.md') (Join-Path $p4 'source_varia
 $s0 = Join-Path $archiveRoot 'S0_20260811_construct-X_sources'
 New-Item -ItemType Directory -Path $s0 | Out-Null
 
-$unresolved = Join-Path $archiveRoot 'unresolved\U1_analyze_smd_63cdce37'
-New-Item -ItemType Directory -Path $unresolved -Force | Out-Null
+$nonDeliveryDraft = Join-Path $archiveRoot 'non_delivery\analyze_smd_v0_63cdce37'
+New-Item -ItemType Directory -Path $nonDeliveryDraft -Force | Out-Null
 $hybridSource = Get-ContainerRoot $hashHybridCleaved
-Copy-NewFile (Join-Path $hybridSource 'analyze_smd.py') (Join-Path $unresolved 'analyze_smd.py')
+Copy-NewFile (Join-Path $hybridSource 'analyze_smd.py') (Join-Path $nonDeliveryDraft 'analyze_smd.py')
 
 $containerRows = Import-Csv -LiteralPath (Join-Path $auditResolved 'reports\ARCHIVE_CONTAINERS.csv')
 
@@ -228,7 +233,7 @@ $sourceDefinitions = @(
     [pscustomobject]@{ Root = $s0; Hashes = @('c690db985aa83b89b0863a7ac0a9069b0f1cbaef36ab9570529ff4e277f6ec74', '29509aa6a105b707ab9fb6b9065eb6cd3199cdb23a589372f9e9b699b18ee6a5'); Role = 'original_source_manifest_only' },
     [pscustomobject]@{ Root = $p3; Hashes = @($hashP3Cleaved, $hashP3Uncleaved, $hashP3Core); Role = 'authoritative_snapshot_source' },
     [pscustomobject]@{ Root = $p4; Hashes = @($hashP4, $hashP4Early); Role = 'authoritative_and_metadata_variant' },
-    [pscustomobject]@{ Root = $unresolved; Hashes = @($hashHybridCleaved, $hashHybridUncleaved); Role = 'unresolved_hybrid_source' }
+    [pscustomobject]@{ Root = $nonDeliveryDraft; Hashes = @($hashHybridCleaved, $hashHybridUncleaved); Role = 'non_delivery_hybrid_transfer_source' }
 )
 foreach ($definition in $sourceDefinitions) {
     $rows = @(
@@ -254,13 +259,13 @@ $p2Sources = @(
 )
 Write-Tsv -Path (Join-Path $p2 'SOURCE_ARCHIVES.tsv') -Headers @('source_archive', 'bytes', 'sha256', 'role') -Rows $p2Sources
 
-$unresolvedRows = @(
-    [pscustomobject]@{ canonical_path = 'analyze_smd.py'; sha256 = $hashUnresolvedAnalyze; status = 'unresolved'; note = 'Same file occurs in both P2-derived hybrid containers; no recorded stage assignment.' }
+$draftRows = @(
+    [pscustomobject]@{ canonical_path = 'analyze_smd.py'; sha256 = $hashDraftAnalyze; status = 'identified_non_delivery_draft'; version = 'v0'; formal_delivery = 'no'; evidence = 'docs/M3_analyze_smd版本迭代确认_v01.md'; note = 'Early draft retained for provenance; excluded from the formal v1-to-v2 delivery chain.' }
 )
-Write-Tsv -Path (Join-Path $unresolved 'PROVENANCE.tsv') -Headers @('canonical_path', 'sha256', 'status', 'note') -Rows $unresolvedRows
+Write-Tsv -Path (Join-Path $nonDeliveryDraft 'PROVENANCE.tsv') -Headers @('canonical_path', 'sha256', 'status', 'version', 'formal_delivery', 'evidence', 'note') -Rows $draftRows
 
 Normalize-CprimeSpelling -Root (Join-Path $worktreeResolved 'archive')
-foreach ($snapshot in @($s0, (Join-Path $archiveRoot 'P1_20260813_初始交付_sander兼容版'), $p2, $p3, $p4, $unresolved, (Join-Path $archiveRoot '文档旧版'))) {
+foreach ($snapshot in @($s0, (Join-Path $archiveRoot 'P1_20260813_初始交付_sander兼容版'), $p2, $p3, $p4, $nonDeliveryDraft, (Join-Path $archiveRoot '文档旧版'))) {
     Write-Manifest -Root $snapshot
 }
 

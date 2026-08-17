@@ -37,3 +37,10 @@
 - 日期：2026-08-17
 - 决策：原工作目录的 6 个未提交文件不自动 stash、提交或覆盖。
 - 保护：已保存逐文件副本、SHA-256 清单和可逆 Git patch；重构在独立 worktree 中进行。
+
+## D-007：analyze_smd.py 早期版本归属
+
+- 日期：2026-08-17
+- 证据：`docs/M3_analyze_smd版本迭代确认_v01.md`，迁移包内源文件 SHA-256 为 `66ed49aceb38992069ffaf3e548905ed5dfd27941cca4bb132f223c2512e0b95`。
+- 决策：SHA-256 为 `63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842` 的文件归类为 v0 暂存草稿，保存于 `archive/non_delivery/`，不计入正式 v1→v2 交付链。
+- 影响：原 R1 `unresolved` 判定作为决策过程保留；当前目录、清单和版本史改为已确认的非交付状态。
