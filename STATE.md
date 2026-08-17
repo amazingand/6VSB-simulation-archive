@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-- 工作流节点：V1 独立验证已通过，W3 发布准备中。
+- 工作流节点：W3 已完成；分支已推送，draft PR #7 已建立。
 - 正式重构分支：`codex/restructure-cprime-history-2026-08-17`。
 - 基线：`bd4fa7de20cca296c388f132c1bb358e9ce2e18f`，即 PR #6 合并后的 `main`。
 - 隔离工作树：`D:\database\6VSB-worktrees\restructure-cprime-history-2026-08-17`。
@@ -22,7 +22,6 @@
 
 ## 下一道 Gate
 
-1. 重新生成仓库级 `SHA256SUMS`，并用 Windows PowerShell 5.1 执行校验。
-2. 以明确 pathspec 暂存并复核 cached diff。
-3. 提交后从干净检出目录复核重构结果。
-4. 通过后推送并创建 draft PR；未经用户后续指令不合并。
+1. 用户复核 draft PR #7；未经用户后续指令不合并。
+2. 单独讨论现有传输压缩包从当前树移除的范围、恢复证据和执行时机。
+3. 压缩包删除如获批准，另立决策和任务，不混入本次框架重构提交。

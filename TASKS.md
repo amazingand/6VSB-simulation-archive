@@ -9,7 +9,7 @@
 | R1 | Archive Reviewer | W1 输出 | 独立复核报告 | DONE | 重复、遗漏、冲突和 unresolved 分类可复现 |
 | W2 | Main | R1 通过的结果 | `archive/`、`protocols/`、`analysis/`、来源映射 | DONE | 只写已确认映射；不删除压缩包 |
 | V1 | Reviewer + Main | 正式结构 | Git diff、哈希、链接和上传范围验证 | DONE | 零意外文件、零哈希异常、可重新检出 |
-| W3 | Main | V1 通过的分支 | commit、push、draft PR | TODO | 用户批准范围与远端 PR 一致 |
+| W3 | Main | V1 通过的分支 | commit、push、draft PR | DONE | 用户批准范围与远端 PR 一致 |
 
 ## Gate 规则
 
