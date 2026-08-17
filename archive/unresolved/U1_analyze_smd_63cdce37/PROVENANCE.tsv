@@ -1,0 +1,2 @@
+canonical_path	sha256	status	note
+analyze_smd.py	63cdce37976d404943901f8a98cea36d0f43613622bc3eb7ecebeebb2bd9a842	unresolved	Same file occurs in both P2-derived hybrid containers; no recorded stage assignment.

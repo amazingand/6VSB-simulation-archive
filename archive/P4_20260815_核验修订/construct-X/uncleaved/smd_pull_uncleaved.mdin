@@ -1,0 +1,31 @@
+SMD 恒速拉动: jar=1 COM 约束, dt=0.002 (nstlim/DISANG/DUMPAVE 由 run_smd.sh 按段覆盖)
+ &cntrl
+    imin=0, irest=1, ntx=5,
+    nstlim=2620000, dt=0.002,
+    ntc=2, ntf=2, cut=12.0, fswitch=10.0,
+    ntb=2, ntp=1, barostat=2, pres0=1.0,
+    ntt=3, gamma_ln=1.0, temp0=310.15,
+    ntr=1, nmropt=1, jar=1,
+    ntpr=1000, ntwx=10000, ntwr=20000, ntxo=2, ioutfm=1, iwrap=1,
+    watnam='WAT', owtnm='O',
+ /          
+ &ewald
+    vdwmeth = 0,
+ /
+ &wt
+    type='DUMPFREQ', istep1=5000
+ /
+ &wt
+    type='END'
+ /
+DISANG=smd.RST
+DUMPAVE=smd.out
+LISTIN=POUT
+LISTOUT=POUT
+&end
+Protein posres
+1.0
+RES 1 371
+END
+END
+

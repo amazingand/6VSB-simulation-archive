@@ -1,0 +1,14 @@
+EQ5: NPT 310K, 无posres 无糖dihe, 500ps(稳定性检验)
+ &cntrl
+    imin=0, irest=0, ntx=1,
+    nstlim=250000, dt=0.002,
+    ntc=2, ntf=2, cut=12.0, fswitch=10.0,
+    ntb=2, ntp=1, barostat=2, pres0=1.0,
+    ntt=3, gamma_ln=1.0, tempi=310.15, temp0=310.15,
+    ntr=0, nmropt=0,
+    ntpr=1000, ntwx=5000, ntwr=10000, ntxo=2, ioutfm=1, iwrap=1,
+    watnam='WAT', owtnm='O',
+ /          
+ &ewald
+    vdwmeth = 0,
+ /

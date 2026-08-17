@@ -10,17 +10,21 @@
 ## 文件存储规则
 
 - 小型文本、脚本和说明文件直接使用 Git。
-- `.tgz` 归档统一使用 Git LFS；提交前运行 `git lfs status`。
-- 单文件超过 100 MiB 时不要直接提交，优先拆分为可独立使用的归档，或放入 GitHub Release 并在仓库中记录下载地址和校验值。
+- 已经进入历史的 `.tgz` 继续由 Git LFS 管理，但不再新增用于平台传输的临时压缩包。
+- 历史版本优先保存为 `archive/` 下可直接浏览的目录、成员清单和来源映射。
+- 单文件超过 100 MiB 时不得直接提交；应先确认它是否属于允许上传范围，再单独决定 Git LFS、Release 或仅本地保留策略。
 - 本地临时文件放在 `tmp/` 或 `work/`，这两个目录不会进入版本控制。
+- `archive/unresolved/` 中的文件不得在来源未确认时并入既有 P 版本。
 
 ## 每次更新
 
 1. 只添加本次确实需要发布的文件。
-2. 更新 `SHA256SUMS`，并运行 `scripts/verify-checksums.ps1`。
-3. 检查 `git status` 与 `git lfs status`，确认没有凭据、缓存或无关文件。
-4. 使用简短提交信息说明新增、替换或删除了什么。
-5. 推送后在 GitHub 页面核对仓库可见性与 LFS 文件状态。
+2. 更新 `PROVENANCE_MAP.tsv` 及受影响快照的 `MANIFEST.tsv`。
+3. 更新 `SHA256SUMS`，并运行 `scripts/verify-checksums.ps1`。
+4. 检查 `git status` 与 `git lfs status`，确认没有压缩包、凭据、缓存或无关文件被误加入。
+5. 使用明确 pathspec 暂存，禁止使用无范围的 `git add .`。
+6. 使用简短提交信息说明新增、替换或删除了什么。
+7. 推送后在 GitHub 页面核对仓库公开性、文件范围与 LFS 状态。
 
 ## 周期性检查
 

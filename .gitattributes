@@ -2,9 +2,27 @@
 *.tar.gz binary
 *.pdf binary
 *.pdb binary
-*.ps1 text eol=crlf
+.gitattributes text eol=lf
+*.ps1 text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
+*.toml text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.mdin text eol=lf
+*.RST text eol=lf
+*.tsv text eol=lf
+*.csv text eol=lf
+*.dat text eol=lf
+*.png binary
+
+# Historical snapshots preserve source bytes; manifests carry their SHA-256 values.
+archive/** -text -whitespace
+
+# Historical evidence and canonical inputs retain intentional source spacing.
+analysis/evidence/*.mdout -text -whitespace
+protocols/** -whitespace
+scripts/smd_pull.mdin -whitespace
 
 # Expanded simulation snapshots: keep large/binary artifacts out of normal Git objects.
 simulations/construct-X/*/charmm-gui-*/** -text
