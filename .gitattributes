@@ -3,6 +3,8 @@
 *.pdf binary
 *.pdb binary
 .gitattributes text eol=lf
+.gitignore text eol=lf
+SHA256SUMS text eol=lf
 *.ps1 text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
@@ -37,3 +39,9 @@ simulations/construct-X/*/charmm-gui-*/**/*.out filter=lfs diff=lfs merge=lfs -t
 simulations/construct-X/*/charmm-gui-*/amber/smd_chunk*.mdout filter=lfs diff=lfs merge=lfs -text
 simulations/construct-X/*/charmm-gui-*/amber/smd_pull.mdout filter=lfs diff=lfs merge=lfs -text
 simulations/construct-X/*/charmm-gui-*/amber/smd_test/*.mdout filter=lfs diff=lfs merge=lfs -text
+
+# Paper-logic view: publish only the merged formal-production output via LFS.
+03_SMD运行/**/本地输出/*.out filter=lfs diff=lfs merge=lfs -text
+03_SMD运行/**/证据/*.mdout -text -whitespace
+03_SMD运行/**/*.mdin -whitespace
+03_SMD运行/**/*.RST -whitespace

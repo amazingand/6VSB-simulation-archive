@@ -1,6 +1,7 @@
 # 本地临时文件
 tmp/
 work/
+临时文件存放/
 *.tmp
 *.temp
 *.log

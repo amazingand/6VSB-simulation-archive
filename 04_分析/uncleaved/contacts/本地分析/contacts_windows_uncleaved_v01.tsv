@@ -1,0 +1,5 @@
+window_start	window_end	n_frames	avg_force_pN	sb_ASP614:LYS854_formed
+31.30	37.50	323	332.7	1.000
+37.50	42.50	254	549.2	0.996
+42.50	45.00	106	nan	0.406
+45.00	55.00	495	179.5	0.000
