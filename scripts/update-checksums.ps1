@@ -57,5 +57,5 @@ if ($PruneMissing) {
 
 $lines = @($entries.Keys | Sort-Object | ForEach-Object { '{0}  {1}' -f $entries[$_], $_ })
 $utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
-[IO.File]::WriteAllLines($ManifestPath, $lines, $utf8WithoutBom)
+[IO.File]::WriteAllText($ManifestPath, (($lines -join "`n") + "`n"), $utf8WithoutBom)
 Write-Host "Updated manifest: $ManifestPath"

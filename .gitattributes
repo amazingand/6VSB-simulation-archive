@@ -3,6 +3,8 @@
 *.pdf binary
 *.pdb binary
 .gitattributes text eol=lf
+.gitignore text eol=lf
+SHA256SUMS text eol=lf
 *.ps1 text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
@@ -17,23 +19,13 @@
 *.png binary
 
 # Historical snapshots preserve source bytes; manifests carry their SHA-256 values.
-archive/** -text -whitespace
+history/** -text -whitespace
 
 # Historical evidence and canonical inputs retain intentional source spacing.
-analysis/evidence/*.mdout -text -whitespace
-protocols/** -whitespace
-scripts/smd_pull.mdin -whitespace
+scripts/legacy/smd_pull.mdin -whitespace
 
-# Expanded simulation snapshots: keep large/binary artifacts out of normal Git objects.
-simulations/construct-X/*/charmm-gui-*/** -text
-simulations/construct-X/*/charmm-gui-*/**/*.nc filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.psf filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.oldpsf filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.crd filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.pdb filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.rst7 filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.parm7 filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/**/*.out filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/amber/smd_chunk*.mdout filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/amber/smd_pull.mdout filter=lfs diff=lfs merge=lfs -text
-simulations/construct-X/*/charmm-gui-*/amber/smd_test/*.mdout filter=lfs diff=lfs merge=lfs -text
+# Paper-logic view: publish only the merged formal-production output via LFS.
+03_SMD运行/**/本地输出/*.out filter=lfs diff=lfs merge=lfs -text
+03_SMD运行/**/证据/*.mdout -text -whitespace
+03_SMD运行/**/*.mdin -whitespace
+03_SMD运行/**/*.RST -whitespace
