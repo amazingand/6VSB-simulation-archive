@@ -12,8 +12,8 @@
 
 | # | 来源 | 路径 | 用途 |
 |---|---|---|---|
-| ① | P3 存档 | `archive/P3_20260814_分片可重启/{cleaved,uncleaved}.tgz` | 提取 v1 |
-| ② | P4 存档 | `archive/P4_20260815_核验修订/M3_SMD初筛核验修订包.tar.gz` | 提取 v2 |
+| ① | P3 存档 | `history/P3_20260814_分片可重启/{cleaved,uncleaved}.tgz` | 提取 v1 |
+| ② | P4 存档 | `history/P4_20260815_核验修订/M3_SMD初筛核验修订包.tar.gz` | 提取 v2 |
 | ③ | 当前部署单元 | `protocols/construct-X/{cleaved,uncleaved}/analyze_smd.py` | 核验现役版 |
 | ④ | GitHub 仓库 | `simulations/construct-X/{cleaved,uncleaved}/charmm-gui-*/amber/analyze_smd.py`(API 实拉) | 核验部署一致性 |
 
@@ -24,7 +24,7 @@
 | 版本 | 时间 | 内容 | 指纹(SHA-256) | 位置 |
 |---|---|---|---|---|
 | **v0(草稿)** | 08-14 早(未定稿) | 最早草稿,列 1 当时间读 | `63cdce37…9a842` | 仅 `tmp/m3_packages/`,**从未交付** |
-| **v1** | 08-14 17:15 | DUMPAVE 语义定死后完整重写,分片跨段累计 | `3c26487e…dad0` | `archive/P3_*/{cleaved,uncleaved}.tgz`(两体系同版) |
+| **v1** | 08-14 17:15 | DUMPAVE 语义定死后完整重写,分片跨段累计 | `3c26487e…dad0` | `history/P3_*/{cleaved,uncleaved}.tgz`(两体系同版) |
 | **v2** | 08-15 08:15 | 三处修复(§4) | `aea06846…e57fa3` | P4 修订包 + `protocols/` 现役 + 仓库 `amber/` |
 | P4.1 | 08-15 | 纯改名,analyze_smd.py **未改动**(仍 v2) | `aea06846…e57fa3` | `protocols/construct-X/{cleaved,uncleaved}/` |
 
@@ -96,10 +96,10 @@ P4.1 只做 RST 统一命名(`smd_cleaved.RST` / `smd_uncleaved.RST`)与脚本/m
 ## 6. 结论与纪律
 
 - **正式链: v1(08-14, P3)→ v2(08-15, P4 三修复); P4.1 改名不动脚本; 无 v3。**
-- 现役与仓库部署同步停留在 **v2**;任何对分析逻辑的修改 = 升版本(v3),进 `archive/`
+- 现役与仓库部署同步停留在 **v2**;任何对分析逻辑的修改 = 升版本(v3),进 `history/`
   快照 + 更新 `ITERATION_HISTORY.md`,**不覆盖历史**。
 - `tmp/` 中的 v0 草稿为暂存残留,非交付物,不计入版本链。
 
 ---
 *本报告由对四个独立来源的 sha256sum + diff 核验产生;指纹与存档位置可在
-`ITERATION_HISTORY.md` 与 `archive/P{n}/说明.md` 复查。*
+`ITERATION_HISTORY.md` 与 `history/P{n}/说明.md` 复查。*

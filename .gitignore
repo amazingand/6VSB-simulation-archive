@@ -2,10 +2,13 @@
 tmp/
 work/
 临时文件存放/
+simulations/
+*.tgz
+*.tar.gz
+Cprime_migration_*.SHA256SUMS
 *.tmp
 *.temp
 *.log
-!simulations/construct-X/*/charmm-gui-*/amber/smd_test/smd_run.log
 
 # 操作系统与编辑器文件
 .DS_Store

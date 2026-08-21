@@ -16,14 +16,14 @@
 ```
 workspace/
 ├── README.md  NODES.md  PROGRESS.md   ← 顶层状态文件(持续追加,不挂 _vNN)
-├── scripts/pack_migration.sh          ← 迁移包按需生成工具(排除 archive/)
+├── scripts/pack_migration.sh          ← 迁移包按需生成工具(排除 history/)
 ├── 01_研究问题/   ← ① 为什么做:背景综述 + 立项 + 核心预言
 ├── 02_体系/       ← ② 做什么:构型 X(cleaved/uncleaved PDB)+ 构建说明 + 自检报告
 ├── 03_SMD运行/    ← ③ 怎么做:协议规划 + 部署单元(两段式平衡/SMD)+ 核验证据
 ├── 04_分析/       ← ④ 结论从哪来:分析脚本 + 结果(体系严格隔离,各留一份)
 ├── 05_对比/       ← ⑤ 汇合点(唯一合法双体系汇合节点):核验报告 + 机制分析 + 论文用图
 ├── 06_论文/       ← ⑥ 出论文:结论摘要 + 论文进度 + 图表冻结副本
-└── archive/       ← 只读历史区(P1–P5 快照),不参与工作流与迁移包
+└── history/       ← 只读历史区(P1–P5 快照),不参与工作流与迁移包
 ```
 
 论文主稿本体在 **`.paper` 工作台**(`papers/spike-force-dissociation/`,平台托管),不在本
@@ -47,10 +47,10 @@ workspace 内;`06_论文/` 只放结论摘要、进度跟踪与图表冻结副�
 1. **顶层状态文件不挂 `_vNN`**:`README.md` / `NODES.md` / 各层 `PROGRESS.md` / 各层
    `USAGE.md` 持续追加更新;`vNN` 只用于科研产物(脚本 / mdin / RST / PDB / 数据 / 报告 / 图表)。
 2. **科研产物命名**:`<逻辑名>_<体系>_<vNN>.<ext>`,体系名 `cleaved` / `uncleaved` **始终嵌入**;
-   每次实质修改版本号 +1,禁止覆盖旧版本(旧版进 `archive/`)。
+   每次实质修改版本号 +1,禁止覆盖旧版本(旧版进 `history/`)。
 3. **01–04 无体系共享执行文件**:字节级相同也分体系各留一份(`04_分析/{cleaved,uncleaved}/`);
    阶段根目录只允许双体系综合文档(报告 / PROGRESS / 说明),**执行文件必须进体系目录**。
-4. **05_对比 是唯一合法双体系汇合节点**;`archive/` 永久只读,不移动 / 不重命名 / 不更新 /
+4. **05_对比 是唯一合法双体系汇合节点**;`history/` 永久只读,不移动 / 不重命名 / 不更新 /
    不参与迁移包。
 5. **交叉引用同步纪律**:mdin 的 `DISANG` 行、脚本引用的 mdin/RST 名若迁移/改名,必须同步
    改成带版本的新名(如 `DISANG=smd_cleaved_v02.RST`),迁移后跑一致性检查确认零悬空引用。
@@ -119,7 +119,14 @@ python analyze_smd_contacts_cleaved_v02.py --traj "smd_production/smd_chunk*.nc"
 
 ## 四、历史与边界
 
-- **`archive/`**(P1–P5 快照 + 文档旧版):只读历史证据,不参与工作流;打包迁移时排除。
-- **迁移包**:按需生成,工具 `scripts/pack_migration.sh`(只含当前工作体系,排除 `archive/`),
+- **`history/`**(P1–P5 快照 + 文档旧版):只读历史证据,不参与工作流;打包迁移时排除。
+- **迁移包**:按需生成,工具 `scripts/pack_migration.sh`(只含当前工作体系,排除 `history/`),
   平时不常驻线上。
 - **节点与简称**:M0–M6 / 模式 M1–M3 / T11–T14 / 构型 X·Y / P1–P5 协议史 → 见 [`NODES.md`](NODES.md)。
+
+## 五、仓库结构与迁移追溯
+
+- 终版目录边界：[`FINAL_STRUCTURE.md`](FINAL_STRUCTURE.md)
+- 重构状态与核验结论：[`MIGRATION_STATUS.md`](MIGRATION_STATUS.md)
+- 旧路径退出最新树的去向：[`docs/repository-history/LEGACY_TREE_REMOVAL_MAP.tsv`](docs/repository-history/LEGACY_TREE_REMOVAL_MAP.tsv)
+- 历史快照：[`history/`](history/)

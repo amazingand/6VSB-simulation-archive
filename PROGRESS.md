@@ -86,6 +86,6 @@ uncleaved 更难剥离 S1 尾、更难释放 FP(总功 +31%、峰力 +38%、首�
 | 跑副本集合 N≥3 | 4×4090 工作站 | 无(`launch_all_replicas_{sys}_v01.sh 4`) |
 | 回填论文 [A](副本统计区间)/ [B](轨迹级归因) | 云侧 | 上述两个数据 |
 | 论文迭代 v02 → 投稿稿 | 云侧 + 用户 | [A][B]、[C] 图表定稿、[D] 作者/单位与 AMBER 版本确认 |
-| 迁移包(如需) | 云侧 | `scripts/pack_migration.sh`(排除 archive/) |
+| 迁移包(如需) | 云侧 | `scripts/pack_migration.sh`(排除 history/) |
 
 > 注:论文占位符 [A][B][C][D] 的跟踪见 `06_论文/PROGRESS.md`。

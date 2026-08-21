@@ -21,7 +21,7 @@
 | P4 final | `82de76be417b85dc7ffa4b14a5d190f347c16dded323ace376a4c1b63a8c2637` |
 | P4 earlier metadata variant | `bc48c181aec43e1781e8bc1d55e6958d7626916c6946919e59aa4e480283411c` |
 
-两个大型 construct-X 来源容器只建立清单和当前路径映射，不在 `archive/` 再复制其展开内容。
+两个大型 construct-X 来源容器只建立清单和当前路径映射，不在 `history/` 再复制其展开内容。
 
 ## R1 时点的 unresolved
 
@@ -34,7 +34,7 @@
 
 ## 2026-08-17 归属确认
 
-后续证据 `docs/M3_analyze_smd版本迭代确认_v01.md` 已确认该内容为 v0 暂存草稿，不属于正式 v1→v2 交付链。对象现存放于 `archive/non_delivery/analyze_smd_v0_63cdce37/`；原始 R1 判定保留在本节之前，作为决策过程记录。
+后续证据 `docs/M3_analyze_smd版本迭代确认_v01.md` 已确认该内容为 v0 暂存草稿，不属于正式 v1→v2 交付链。对象现存放于 `history/non_delivery/analyze_smd_v0_63cdce37/`；原始 R1 判定保留在本节之前，作为决策过程记录。
 
 ## W2 白名单
 
